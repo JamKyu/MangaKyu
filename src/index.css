@@ -680,12 +680,13 @@ footer {
     font-size: 24px;
   }
   .manga {
-    /* min-width: 100px; */
     width: 20%;
-    height: 100%;
     margin: 32px 8px 0 0;
   }
   #filter {
     width: 40%;
+  }
+  .manga .skeleton {
+    height: 380px;
   }
 }
