@@ -118,6 +118,8 @@ ul {
   justify-content: space-between;
   padding: 8px 16px;
   white-space: no-wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav__links {
@@ -416,7 +418,7 @@ footer {
   background-color: #ffbd59;
   border-radius: 8px;
   padding: 4px 4px 0 4px;
-  margin: 32px 32px 0 0;
+  margin: 32px 16px 0 16px;
   transition: all 300ms ease;
   cursor: pointer;
 }
@@ -681,7 +683,7 @@ footer {
   }
   .manga {
     width: 20%;
-    margin: 32px 8px 0 0;
+    margin: 32px 4px 0 4px;
   }
   #filter {
     width: 40%;
