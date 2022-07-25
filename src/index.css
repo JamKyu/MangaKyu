@@ -219,7 +219,8 @@ ul {
 header {
   height: 100vh;
   background-image: url(./assets/manga-bg2.jpg);
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: 0;
   background-blend-mode: overlay;
   background-color: #242424;

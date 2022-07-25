@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
-  function handleSubmit(e) {
+  function handleSubmit() {
     setLoading(true);
-    setTimeout(300);
-    navigate(`/browse/${search}`);
+    setTimeout(() => {
+      navigate(`/browse/${search}`);
+    }, 400);
   }
 
   function onSearchKeyDown(key) {
@@ -30,7 +31,7 @@ function Home() {
             <h2 className="header__sub-title">
               Browse the <span className="peach">manga</span> database:
             </h2>
-            <form className="search" onSubmit={handleSubmit}>
+            <div className="search">
               <input
                 type="text"
                 className="search-box"
@@ -41,11 +42,15 @@ function Home() {
                   onSearchKeyDown(e.key);
                 }}
               />
-              <button className="search__btn" type="submit" disabled={!search}>
+              <button
+                className="search__btn"
+                onClick={() => handleSubmit()}
+                disabled={!search}
+              >
                 {loading && <RefreshIcon className="loading__btn" />}
                 {!loading && <SearchIcon className="search__icon" />}
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
