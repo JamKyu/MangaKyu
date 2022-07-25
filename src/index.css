@@ -227,7 +227,7 @@ header {
 
 .header__description {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   margin: 104px auto 0;
   height: 100%;
   display: flex;
@@ -254,6 +254,7 @@ header {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  width: 90%;
   min-width: 600px;
 }
 
