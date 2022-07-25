@@ -49,12 +49,6 @@ i {
   transform: scale(0.9);
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .peach {
   color: #ffbd59;
 }
@@ -156,6 +150,7 @@ ul {
   width: 69px;
   height: 69px;
   transition: all 300ms ease;
+  border-radius: 999px;
 }
 
 .btn__menu {
@@ -316,6 +311,7 @@ footer {
 .footer__logo {
   display: flex;
   transition: all 300ms ease;
+  border-radius: 999px;
 }
 
 .footer__logo--img {
@@ -342,6 +338,41 @@ footer {
 
 #browse {
   margin-top: 48px;
+  min-height: 100vh;
+}
+
+.browse__input {
+  display: flex;
+  width: 90%;
+  max-width: 800px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.browse__input--box {
+  border: none;
+  outline: none;
+  height: 72px;
+  width: 100%;
+  font-size: 24px;
+  border-radius: 24px;
+  padding-left: 24px;
+  background-color: whitesmoke;
+}
+
+.browse__input--icon {
+  position: absolute;
+  color: #ffbd59;
+  width: 48px;
+  right: 16px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.browse__input--icon:hover {
+  color: #e08a0a;
 }
 
 .search__filter {
@@ -365,7 +396,7 @@ footer {
   outline: none;
   padding: 0 16px;
   width: 100%;
-  max-width: 120px;
+  max-width: 160px;
 }
 
 .manga__container {
@@ -375,58 +406,120 @@ footer {
 }
 
 .manga {
-  width: calc(100% / 4);
-  max-width: 350px;
-  padding: 48px 24px 16px 24px;
-  border: 2px solid #545454;
-  box-shadow: 12px 12px #242424;
+  width: 22%;
+  min-width: 250px;
+  box-shadow: 2px 2px 12px black;
   background-color: #ffbd59;
   border-radius: 8px;
-  /* padding: 8px 8px 0 8px; */
+  padding: 4px 4px 0 4px;
+  margin: 32px 32px 0 0;
+  transition: all 300ms ease;
+  cursor: pointer;
 }
 
 .manga:hover {
-  transform: scale(1.03);
-  transition: all 300ms ease;
+  transform: translateY(-3px);
+  background-color: #e08a0a;
+}
+
+.skeleton {
+  background-color: #646464 !important;
+  height: 380px;
 }
 
 .manga__img--wrapper {
   width: 100%;
+  object-fit: contain;
+  height: 300px;
 }
 
 .manga__img {
   border-radius: 8px;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 100%;
+  box-shadow: 0 0 2px #242424;
+}
+
+.manga__titles {
+  padding: 8px 0;
 }
 
 .manga__title {
-  font-size: 24px;
-  padding: 8px 0;
+  font-size: 16px;
   text-align: center;
+  font-weight: bold;
+  padding-bottom: 4px;
 }
 
-.manga__skeleton {
-  width: calc(100% / 4);
-  /* max-width: 350px; */
-  padding: 48px 24px 16px 24px;
+.manga__score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.manga__skeleton--img,
-.manga__skeleton--title {
-  background-color: #646464;
+.manga__score--icon {
+  color: yellow;
+  width: 24px;
+  padding-right: 4px;
 }
 
-.manga__skeleton--img {
-  border-radius: 8px;
+.not__found {
+  margin-top: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.not__found--wrapper {
+  width: 80%;
+  margin-bottom: 16px;
+}
+
+.not__found--img {
   width: 100%;
-  height: 200px;
 }
 
-.manga__skeleton--title {
-  border-radius: 8px;
-  margin: 8px 0;
-  width: 100%;
-  height: 24px;
+.not__found--title {
+  margin: 16px 0;
+  font-size: 40px;
+}
+
+/* 
+  INFO
+*/
+
+.manga__info {
+  max-width: 1200px;
+  margin: 104px auto;
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  height: 100vh;
+}
+
+.manga__info--return {
+  display: flex;
+  cursor: pointer;
+}
+
+.manga__info--return--icon {
+  width: 30px;
+}
+
+.manga__info--return--text {
+  font-size: 24px;
+  margin-left: 24px;
+}
+
+.manga__info--wrapper {
+  width: 60%;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.manga__info--img--wrapper {
+width: 30%;
 }

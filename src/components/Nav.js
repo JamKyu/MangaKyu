@@ -18,7 +18,7 @@ function Nav() {
         </Link>
         <ul className="nav__links">
           <li className="nav__list">
-            <Link to="/Browse" className="nav__link link__hover">
+            <Link to="/browse/Manga" className="nav__link link__hover">
               Browse Manga
             </Link>
           </li>
@@ -42,7 +42,7 @@ function Nav() {
               </Link>
             </li>
             <li className="menu__list">
-              <Link to="/Browse" className="menu__link" onClick={closeMenu}>
+              <Link to="/browse/Manga" className="menu__link" onClick={closeMenu}>
                 Browse Manga
               </Link>
             </li>

@@ -6,13 +6,13 @@ function Footer() {
   return (
     <footer>
       <div className="row row__column">
-        <Link to="/">
-          <figure className="footer__logo click">
+        <figure className="footer__logo click">
+          <Link to="/">
             <img src={Logo} alt="" className="footer__logo--img" />
-          </figure>
-        </Link>
+          </Link>
+        </figure>
         <div className="footer__list">
-          <Link to="/Browse" className="footer__link link__hover">
+          <Link to="/Manga" className="footer__link link__hover">
             Manga
           </Link>
           <Link to="" className="footer__link link__hover no-cursor">
