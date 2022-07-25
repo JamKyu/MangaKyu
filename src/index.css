@@ -155,7 +155,7 @@ ul {
 
 .btn__menu {
   background-color: transparent;
-  font-size: 32px;
+  width: 32px;
   border: none;
   color: #ffbd59;
   display: none;
@@ -218,11 +218,11 @@ ul {
 
 header {
   height: 100vh;
-  background-image: url(./assets/manga-bg.jpg);
-  background-size: cover;
+  background-image: url(./assets/manga-bg2.jpg);
+  background-size: contain;
   background-position: 0;
   background-blend-mode: overlay;
-  background-color: #545454;
+  background-color: #242424;
 }
 
 .header__description {
@@ -359,6 +359,7 @@ footer {
   font-size: 24px;
   border-radius: 24px;
   padding-left: 24px;
+  padding-right: 80px;
   background-color: whitesmoke;
 }
 
@@ -384,6 +385,7 @@ footer {
 
 .search__text {
   color: whitesmoke;
+  width: 50%;
 }
 
 #filter {
@@ -396,7 +398,7 @@ footer {
   outline: none;
   padding: 0 16px;
   width: 100%;
-  max-width: 160px;
+  max-width: 200px;
 }
 
 .manga__container {
@@ -493,14 +495,20 @@ footer {
   max-width: 1200px;
   margin: 104px auto;
   display: flex;
-  flex-direction: column;
   color: whitesmoke;
+  flex-direction: column;
   height: 100vh;
 }
 
 .manga__info--return {
   display: flex;
   cursor: pointer;
+  transition: all 300ms ease;
+  margin: 32px;
+}
+
+.manga__info--return:hover {
+  color: #ffbd59;
 }
 
 .manga__info--return--icon {
@@ -509,17 +517,173 @@ footer {
 
 .manga__info--return--text {
   font-size: 24px;
-  margin-left: 24px;
+  margin-left: 8px;
 }
 
 .manga__info--wrapper {
-  width: 60%;
+  width: 100%;
   padding: 16px 32px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .manga__info--img--wrapper {
-width: 30%;
+  width: 30%;
+  transition: all 600ms ease;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.manga__info--img {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.manga__info--img--wrapper:hover .manga__info--img {
+  filter: blur(5px);
+}
+
+.manga__info--img--wrapper:hover .manga__info--img--bg {
+  opacity: 0.7;
+  visibility: visible;
+}
+
+.manga__info--img--wrapper:hover .manga__info--img--link {
+  opacity: 1;
+}
+
+.manga__info--img--bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  transition: all 450ms ease;
+  visibility: hidden;
+}
+
+.manga__info--img--link {
+  position: absolute;
+  opacity: 0;
+  top: 40%;
+  left: 40%;
+  width: 80px;
+  margin: 0 auto;
+  transition: opacity 300ms ease;
+  color: whitesmoke;
+  z-index: 100;
+}
+
+.manga__desc {
+  width: 70%;
+  height: 100%;
+  padding: 8px 32px;
+}
+
+.manga__desc--title {
+  color: #ffbd59;
+}
+
+.manga__desc--score {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.manga__desc--published {
+  padding-bottom: 8px;
+}
+
+.manga__desc--synopsis {
+  padding-bottom: 8px;
+}
+
+.manga__desc--skeleton,
+.manga__info--img--skeleton,
+.manga__desc--para--skeleton {
+  background-color: #646464 !important;
+  border-radius: 8px;
+}
+
+.manga__info--img--skeleton {
+  width: 30%;
+  height: 400px;
+}
+
+.manga__desc--skeleton {
+  width: 80%;
+  height: 32px;
+  margin-bottom: 16px;
+}
+
+.manga__desc--para--skeleton {
+  width: 80%;
+  height: 56px;
+}
+
+/* 
+  MOBILE
+*/
+
+@media (max-width: 680px) {
+  .manga__info--wrapper {
+    flex-direction: column;
+    align-items: start;
+  }
+  .manga__desc {
+    width: 100%;
+    line-height: 1.5;
+  }
+  .search__text {
+    font-size: 16px;
+  }
+  .manga__info--return {
+    margin: 16px;
+  }
+  .manga__desc--skeleton {
+    width: 100%;
+  }
+  .manga__info--img--wrapper {
+    width: 50%;
+    height: 100%;
+    padding-left: 32px;
+  }
+  .manga__info--img--skeleton {
+    width: 50%;
+    height: 400px;
+    margin-left: 32px;
+    margin-bottom: 8px;
+  }
+  .manga__desc--para--skeleton {
+    height: 100px;
+  }
+  .nav__list {
+    display: none;
+  }
+  .btn__menu {
+    display: block;
+  }
+  .search {
+    min-width: 200px;
+    width: 90%;
+  }
+  .header__title {
+    font-size: 56px;
+  }
+  .header__sub-title {
+    font-size: 24px;
+  }
+  .manga {
+    /* min-width: 100px; */
+    width: 20%;
+    height: 100%;
+    margin: 32px 8px 0 0;
+  }
+  #filter {
+    width: 40%;
+  }
 }

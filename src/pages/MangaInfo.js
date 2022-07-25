@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, StarIcon } from "@heroicons/react/solid";
+import { ChevronLeftIcon, ExternalLinkIcon, StarIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -43,9 +43,10 @@ function MangaInfo() {
         <div className="manga__info--wrapper">
           <div className="manga__info--img--skeleton"></div>
           <div className="manga__desc">
-            <h1 className="manga__desc--title--skeleton"></h1>
-            <h2 className="manga__desc--score--skeleton"></h2>
-            <p className="manga__desc--synopsis--skeleton"></p>
+            <div className="manga__desc--skeleton"></div>
+            <div className="manga__desc--skeleton"></div>
+            <div className="manga__desc--skeleton"></div>
+            <div className="manga__desc--para--skeleton"></div>
           </div>
         </div>
       ) : (
@@ -60,6 +61,9 @@ function MangaInfo() {
               alt=""
               className="manga__info--img"
             />
+          <div className="manga__info--img--bg">
+            <div className="manga__info--img--link"><ExternalLinkIcon /></div>
+          </div>
           </a>
           <div className="manga__desc">
             <h1 className="manga__desc--title">{manga.title}</h1>

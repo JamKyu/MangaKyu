@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Manga from "../components/ui/Manga";
-import notFound from "../assets/not_found.svg"
+import notFound from "../assets/not_found.svg";
 
 const Browse = () => {
   const { search } = useParams();
@@ -14,10 +14,9 @@ const Browse = () => {
   async function fetchManga(id) {
     setLoading(true);
     const { data } = await axios.get(
-      `https://api.jikan.moe/v4/manga?sfw="true"&q=${id || search}`
+      `https://api.jikan.moe/v4/manga?q=${id || search}&type=manga`
     );
     const result = data.data;
-    console.log(result);
     setManga(result);
     setLoading(false);
   }
@@ -26,6 +25,16 @@ const Browse = () => {
     fetchManga(searchId);
     window.history.replaceState(null, "", `${searchId}`);
   };
+
+  function filterManga(filter) {
+    if (filter === "ASC") {
+      setManga([...mangaId].sort((a, b) => (a.title > b.title ? 1 : -1)));
+    } else if (filter === "DESC") {
+      setManga([...mangaId].sort((a, b) => (b.title > a.title ? 1 : -1)));
+    } else if (filter === "SCORE") {
+      setManga([...mangaId].sort((a, b) => b.score - a.score));
+    }
+  }
 
   useEffect(() => {
     fetchManga();
@@ -53,13 +62,17 @@ const Browse = () => {
               <h3 className="search__text">
                 Search results for: "<span className="peach">{searchId}</span>"
               </h3>
-              <select defaultValue={"DEFAULT"} id="filter" onChange="">
+              <select
+                defaultValue={"DEFAULT"}
+                id="filter"
+                onChange={(e) => filterManga(e.target.value)}
+              >
                 <option value="DEFAULT" disabled>
                   Sort
                 </option>
                 <option value="ASC">Title, A to Z</option>
                 <option value="DESC">Title, Z to A</option>
-                <option value="POP">Popularity</option>
+                <option value="SCORE">Score, High to Low</option>
               </select>
             </div>
             <div className="manga__container">
@@ -86,9 +99,7 @@ const Browse = () => {
                   <figure className="not__found--wrapper">
                     <img src={notFound} alt="" className="not__found--img" />
                   </figure>
-                  <h1 className="not__found--title">
-                    No Results
-                  </h1>
+                  <h1 className="not__found--title">No Results</h1>
                   <p>Try searching again</p>
                 </div>
               )}

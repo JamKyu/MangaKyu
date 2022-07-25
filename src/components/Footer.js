@@ -12,7 +12,7 @@ function Footer() {
           </Link>
         </figure>
         <div className="footer__list">
-          <Link to="/Manga" className="footer__link link__hover">
+          <Link to="/browse/Manga" className="footer__link link__hover">
             Manga
           </Link>
           <Link to="" className="footer__link link__hover no-cursor">
