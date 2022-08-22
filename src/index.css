@@ -95,6 +95,106 @@ i {
   align-items: center;
 }
 
+/*
+BROWSER SCROLLBAR
+*/
+
+/* CHROME & SAFARI */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #ffbd59;
+  border-radius: 8px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: grey;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: white;
+  border-radius: 10px;
+}
+
+/* FIREFOX */
+html::-moz-scrollbar {
+  width: 8px;
+}
+
+html::-moz-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-moz-scrollbar-thumb {
+  background: #ffbd59;
+  border-radius: 8px;
+}
+
+html::-moz-scrollbar-thumb:hover {
+  background: grey;
+  border-radius: 10px;
+}
+
+html::-moz-scrollbar-thumb:active {
+  background: white;
+  border-radius: 10px;
+}
+
+/* INTERNET EXPLORER */
+html::-ms-scrollbar {
+  width: 8px;
+}
+
+html::-ms-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-ms-scrollbar-thumb {
+  background: #ffbd59;
+  border-radius: 8px;
+}
+
+html::-ms-scrollbar-thumb:hover {
+  background: grey;
+  border-radius: 10px;
+}
+
+html::-ms-scrollbar-thumb:active {
+  background: white;
+  border-radius: 10px;
+}
+
+/* OPERA */
+html::-o-scrollbar {
+  width: 8px;
+}
+
+html::-o-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-o-scrollbar-thumb {
+  background: #ffbd59;
+  border-radius: 8px;
+}
+
+html::-o-scrollbar-thumb:hover {
+  background: grey;
+  border-radius: 10px;
+}
+
+html::-o-scrollbar-thumb:active {
+  background: white;
+  border-radius: 10px;
+}
+
 /* 
   NAV
 */
@@ -161,6 +261,11 @@ ul {
   border: none;
   color: #ffbd59;
   display: none;
+  cursor: pointer;
+}
+
+.btn__menu:hover {
+  color: #e08a0a;
 }
 
 .menu__backdrop {
@@ -204,14 +309,23 @@ ul {
 .menu__link {
   color: whitesmoke;
   font-size: 40px;
+  transition: all ease;
+}
+
+.menu__link:hover,
+.btn__menu--close:hover {
+  color: #e08a0a;
 }
 
 .btn__menu--close {
   position: absolute;
+  width: 56px;
+  height: 56px;
   top: 10px;
   right: 20px;
   padding: 8px;
   color: whitesmoke;
+  cursor: pointer;
 }
 
 /* 
@@ -409,6 +523,31 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.manga__load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 48px;
+}
+
+.manga__btn {
+  border-radius: 8px;
+  background-color: #ffbd59;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  width: 20%;
+  min-width: 140px;
+  height: 48px;
+  border: none;
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+
+.manga__btn:hover {
+  background-color: #e08a0a;
 }
 
 .manga {

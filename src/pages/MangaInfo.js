@@ -1,4 +1,8 @@
-import { ChevronLeftIcon, ExternalLinkIcon, StarIcon } from "@heroicons/react/solid";
+import {
+  ChevronLeftIcon,
+  ExternalLinkIcon,
+  StarIcon,
+} from "@heroicons/react/solid";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -54,6 +58,7 @@ function MangaInfo() {
           <a
             href={manga.url}
             target="_blank"
+            rel="noreferrer"
             className="manga__info--img--wrapper"
           >
             <img
@@ -61,9 +66,11 @@ function MangaInfo() {
               alt=""
               className="manga__info--img"
             />
-          <div className="manga__info--img--bg">
-            <div className="manga__info--img--link"><ExternalLinkIcon /></div>
-          </div>
+            <div className="manga__info--img--bg">
+              <div className="manga__info--img--link">
+                <ExternalLinkIcon />
+              </div>
+            </div>
           </a>
           <div className="manga__desc">
             <h1 className="manga__desc--title">{manga.title}</h1>

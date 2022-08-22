@@ -10,6 +10,7 @@ const Browse = () => {
   const [mangaId, setManga] = useState([]);
   const [searchId, setSearchId] = useState(search);
   const [loading, setLoading] = useState();
+  const [mangaCount, setMangaCount] = useState(8);
 
   async function fetchManga(id) {
     setLoading(true);
@@ -17,6 +18,7 @@ const Browse = () => {
       `https://api.jikan.moe/v4/manga?q=${id || search}&type=manga`
     );
     const result = data.data;
+    // console.log(result);
     setManga(result);
     setLoading(false);
   }
@@ -25,6 +27,12 @@ const Browse = () => {
     fetchManga(searchId);
     window.history.replaceState(null, "", `${searchId}`);
   };
+
+  function onSearchKeyUp(key) {
+    if (key === "Enter" && searchId) {
+      onSearch();
+    }
+  }
 
   function filterManga(filter) {
     if (filter === "ASC") {
@@ -52,6 +60,9 @@ const Browse = () => {
                 placeholder="Search by title"
                 value={searchId}
                 onChange={(e) => setSearchId(e.target.value)}
+                onKeyUp={(e) => {
+                  onSearchKeyUp(e.key);
+                }}
               />
               <SearchIcon
                 className="browse__input--icon"
@@ -77,14 +88,14 @@ const Browse = () => {
             </div>
             <div className="manga__container">
               {loading ? (
-                new Array(8)
+                new Array(mangaCount)
                   .fill(0)
                   .map((_, index) => (
                     <div className="manga skeleton" key={index}></div>
                   ))
               ) : mangaId.length ? (
                 mangaId
-                  ?.slice(0, 8)
+                  ?.slice(0, mangaCount)
                   .map((manga, index) => (
                     <Manga
                       key={index}
@@ -102,6 +113,18 @@ const Browse = () => {
                   <h1 className="not__found--title">No Results</h1>
                   <p>Try searching again</p>
                 </div>
+              )}
+            </div>
+            <div className="manga__load">
+              {mangaCount < (mangaId.length && 24) ? (
+                <button
+                  className="manga__btn"
+                  onClick={() => setMangaCount(mangaCount + 4)}
+                >
+                  Load More
+                </button>
+              ) : (
+                ""
               )}
             </div>
           </div>

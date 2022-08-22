@@ -33,7 +33,7 @@ function Nav() {
         </button>
         <div className="menu__backdrop">
           <button className="btn__menu btn__menu--close">
-            <XIcon />
+            <XIcon onClick={closeMenu} />
           </button>
           <ul className="menu__links">
             <li className="menu__list">
@@ -42,7 +42,11 @@ function Nav() {
               </Link>
             </li>
             <li className="menu__list">
-              <Link to="/browse/Manga" className="menu__link" onClick={closeMenu}>
+              <Link
+                to="/browse/Manga"
+                className="menu__link"
+                onClick={closeMenu}
+              >
                 Browse Manga
               </Link>
             </li>
