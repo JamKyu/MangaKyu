@@ -5,6 +5,8 @@ import axios from "axios";
 import Manga from "../components/ui/Manga";
 import notFound from "../assets/not_found.svg";
 
+const API_URL = "https://api.jikan.moe/v4/manga?q=";
+
 const Browse = () => {
   const { search } = useParams();
   const [mangaId, setManga] = useState([]);
@@ -14,9 +16,7 @@ const Browse = () => {
 
   async function fetchManga(id) {
     setLoading(true);
-    const { data } = await axios.get(
-      `https://api.jikan.moe/v4/manga?q=${id || search}&type=manga`
-    );
+    const { data } = await axios.get(`${API_URL}${id || search}&type=manga`);
     const result = data.data;
     // console.log(result);
     setManga(result);

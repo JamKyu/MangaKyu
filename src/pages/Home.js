@@ -35,7 +35,7 @@ function Home() {
               <input
                 type="text"
                 className="search-box"
-                placeholder="Search by title"
+                placeholder="Search by title (e.g. Dragon Ball)"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={(e) => {

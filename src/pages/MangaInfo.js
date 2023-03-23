@@ -7,6 +7,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+const API_URL = "https://api.jikan.moe/v4/manga/";
+
 function MangaInfo() {
   const { id } = useParams();
   const [manga, setManga] = useState({
@@ -23,7 +25,7 @@ function MangaInfo() {
 
   async function fetchManga() {
     setLoading(true);
-    const { data } = await axios.get(`https://api.jikan.moe/v4/manga/${id}`);
+    const { data } = await axios.get(`${API_URL}${id}`);
     const response = data.data;
     // console.log(response);
     setManga(response);
