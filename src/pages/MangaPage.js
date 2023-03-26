@@ -16,7 +16,11 @@ const Browse = () => {
 
   async function fetchManga(id) {
     setLoading(true);
-    const { data } = await axios.get(`${API_URL}${id || search}&type=manga`);
+    const { data } = await axios.get(
+      `${API_URL}${
+        id || search
+      }&type=manga&min_score=1&genres_exclude=9,49,12`
+    );
     const result = data.data;
     // console.log(result);
     setManga(result);
@@ -35,12 +39,18 @@ const Browse = () => {
   }
 
   function filterManga(filter) {
-    if (filter === "ASC") {
-      setManga([...mangaId].sort((a, b) => (a.title > b.title ? 1 : -1)));
-    } else if (filter === "DESC") {
-      setManga([...mangaId].sort((a, b) => (b.title > a.title ? 1 : -1)));
-    } else if (filter === "SCORE") {
-      setManga([...mangaId].sort((a, b) => b.score - a.score));
+    switch (filter) {
+      case "ASC":
+        setManga([...mangaId].sort((a, b) => (a.title > b.title ? 1 : -1)));
+        break;
+      case "DESC":
+        setManga([...mangaId].sort((a, b) => (b.title > a.title ? 1 : -1)));
+        break;
+      case "SCORE":
+        setManga([...mangaId].sort((a, b) => b.score - a.score));
+        break;
+      default:
+        break;
     }
   }
 

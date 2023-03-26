@@ -19,7 +19,7 @@ function Footer() {
             Contact
           </Link>
         </div>
-        <div className="footer__copyright">&copy; 2022 MangaKyu</div>
+        <div className="footer__copyright">&copy; 2023 MangaKyu</div>
       </div>
     </footer>
   );
