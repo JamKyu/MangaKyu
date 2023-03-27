@@ -47,12 +47,12 @@ function MangaInfo() {
       </div>
       {loading ? (
         <div className="manga__info--wrapper">
-          <div className="manga__info--img--skeleton"></div>
+          <div className="manga__info--img--skeleton skeleton-box"></div>
           <div className="manga__desc">
-            <div className="manga__desc--skeleton"></div>
-            <div className="manga__desc--skeleton"></div>
-            <div className="manga__desc--skeleton"></div>
-            <div className="manga__desc--para--skeleton"></div>
+            <div className="manga__desc--skeleton skeleton-box"></div>
+            <div className="manga__desc--skeleton skeleton-box"></div>
+            <div className="manga__desc--skeleton skeleton-box"></div>
+            <div className="manga__desc--para--skeleton skeleton-box"></div>
           </div>
         </div>
       ) : (

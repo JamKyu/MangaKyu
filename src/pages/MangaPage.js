@@ -101,7 +101,7 @@ const Browse = () => {
                 new Array(mangaCount)
                   .fill(0)
                   .map((_, index) => (
-                    <div className="manga skeleton" key={index}></div>
+                    <div className="manga skeleton skeleton-box" key={index}></div>
                   ))
               ) : mangaId.length ? (
                 mangaId
